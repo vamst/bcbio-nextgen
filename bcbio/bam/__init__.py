@@ -185,6 +185,8 @@ def downsample(in_bam, data, target_counts, work_dir=None):
                        "-s {ds_pct} {in_bam}")
                 do.run(cmd.format(**locals()), "Downsample BAM file: %s" % os.path.basename(in_bam))
         return out_file
+    else:
+        return in_bam
 
 def get_maxcov_downsample_cl(data, in_pipe=None):
     """Retrieve command line for max coverage downsampling, fitting into bamsormadup output.
